@@ -1,6 +1,8 @@
 package com.example.quickstock;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,13 +16,16 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_sign_in);  // Set the SignIn layout
-
-        // Handling window insets to adjust padding based on system bars
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.id), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        setContentView(R.layout.activity_sign_in);
+        // Find the back button by ID
+        ImageButton btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logic to go back to previous activity
+                finish();  // This will close the current activity and return to the previous one
+            }
         });
+
     }
 }

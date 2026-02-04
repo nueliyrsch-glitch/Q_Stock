@@ -118,7 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="0dp"
@@ -128,15 +129,17 @@
                 android:textSize="12sp"
                 android:textColor="#555555" />
 
-            <TextView
-                android:id="@+id/tvCreateAccount"
+            <Button
+                android:id="@+id/btnCreateAccount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:text="Create an account"
-                android:textSize="12sp"
-                android:textColor="#555555"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#F89C33"
+                android:textAllCaps="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"/>
         </LinearLayout>
 
         <!-- Sign In Button -->
