@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgZoom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/screen"
+        android:scaleType="centerCrop"
+        android:scaleX="1.6"
+        android:scaleY="1.5"
+        android:translationX="0dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:visibility="gone"
+        android:indeterminate="true" />
+
+</FrameLayout>

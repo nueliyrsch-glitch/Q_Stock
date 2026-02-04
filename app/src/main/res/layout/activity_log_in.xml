@@ -1,0 +1,157 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800">
+
+    <!-- Header Section with Logo -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#FF9800">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/back"
+            android:contentDescription="Back"
+            android:padding="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scaleType="centerInside"/> <!-- This scales the image to fit within the button -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_gravity="center_vertical"
+            android:background="#FFF59D" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/yellow_circle"
+            android:padding="18dp"
+            android:src="@drawable/qstock_logo"
+            android:scaleType="centerInside"
+            android:elevation="6dp" />
+    </FrameLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/corner_body"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:elevation="8dp">
+
+        <!-- Login Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+
+        <!-- Store Name Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Store Name"
+            android:textSize="12sp"
+            android:textColor="#555555"
+            android:layout_marginTop="28dp" />
+
+        <!-- Store Name EditText -->
+        <EditText
+            android:id="@+id/etStoreName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input"
+            android:drawableTint="#757575"
+            android:drawablePadding="12dp"
+            android:paddingStart="48dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:gravity="center_vertical" />
+
+        <!-- Password Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="12sp"
+            android:textColor="#555555"
+            android:layout_marginTop="20dp" />
+
+        <!-- Password EditText -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input"
+            android:drawableTint="#757575"
+            android:drawablePadding="12dp"
+            android:paddingStart="48dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:inputType="textPassword"
+            android:gravity="center_vertical" />
+
+        <!-- Forgot Password and Create Account Links -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Forgot Password?"
+                android:textSize="12sp"
+                android:textColor="#555555" />
+
+            <TextView
+                android:id="@+id/tvCreateAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create an account"
+                android:textSize="12sp"
+                android:textColor="#555555"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <!-- Sign In Button -->
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="220dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_orange_pill"
+            android:text="Sign in"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</FrameLayout>
