@@ -113,6 +113,16 @@
             android:inputType="textPassword"
             android:gravity="center_vertical" />
 
+        <TextView
+            android:id="@+id/tvPasswordError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Incorrect store name or password"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"/>
+
         <!-- Forgot Password and Create Account Links -->
         <LinearLayout
             android:layout_width="match_parent"

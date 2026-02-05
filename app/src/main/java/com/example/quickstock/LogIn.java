@@ -2,70 +2,110 @@ package com.example.quickstock;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class LogIn extends AppCompatActivity {
+
+    String URL = "http://10.0.2.2/Quickstock_API/login_user.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Ensure this matches your activity_log_in.xml file name
         setContentView(R.layout.activity_log_in);
 
-        // 1. BACK BUTTON: Navigates back to the 'Account' selection page
         ImageButton btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this, Account.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        btnBack.setOnClickListener(v -> finish());
 
-        // 2. CREATE ACCOUNT LINK: Opens your Sign In (Registration) UI
         TextView createAccountText = findViewById(R.id.btnCreateAccount);
-        createAccountText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this, SignIn.class);
-                startActivity(intent);
-            }
-        });
+        createAccountText.setOnClickListener(v ->
+                startActivity(new Intent(LogIn.this, SignIn.class)));
 
-        // 3. ORANGE SIGN IN BUTTON: Integrated logic to pass Name and Location
-        final EditText etStoreName = findViewById(R.id.etStoreName);
-        final EditText etPassword = findViewById(R.id.etPassword);
+        EditText etStoreName = findViewById(R.id.etStoreName);
+        EditText etPassword = findViewById(R.id.etPassword);
+        TextView tvPasswordError = findViewById(R.id.tvPasswordError);
+        tvPasswordError.setVisibility(TextView.GONE);
+
         Button btnSignIn = findViewById(R.id.btnSignIn);
+        btnSignIn.setOnClickListener(v -> {
+            String storeName = etStoreName.getText().toString().trim().toLowerCase();
+            String password = etPassword.getText().toString().trim();
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String storeName = etStoreName.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+            tvPasswordError.setVisibility(TextView.GONE);
 
-                if (storeName.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LogIn.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Create the bridge to the Dashboard
-                    Intent intent = new Intent(LogIn.this, Dashboard.class);
-
-                    // Pass the Store Name entered by the user
-                    intent.putExtra("STORE_NAME_KEY", storeName);
-
-                    // Pass a placeholder Location (this will eventually come from your database)
-                    intent.putExtra("LOCATION_KEY", "Dasmariñas, Cavite");
-
-                    startActivity(intent);
-                    finish(); // Prevents user from going back to login screen after success
-                }
+            if (storeName.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LogIn.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            } else {
+                loginUser(storeName, password, tvPasswordError, etPassword);
             }
         });
+    }
+
+    private void loginUser(String storeName, String password, TextView tvPasswordError, EditText etPassword) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                response -> {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+
+                        boolean success = jsonObject.optBoolean("success", false);
+
+                        if (success) {
+                            // Login successful → go to Dashboard
+                            String location = jsonObject.optString("location", "Dasmariñas, Cavite");
+
+                            Intent intent = new Intent(LogIn.this, Dashboard.class);
+                            intent.putExtra("STORE_NAME_KEY", storeName);
+                            intent.putExtra("LOCATION_KEY", location);
+                            startActivity(intent);
+                            finish();
+
+                        } else {
+                            // Login failed → show PHP error
+                            String errorMessage = jsonObject.optString("error", "Incorrect store name or password");
+                            tvPasswordError.setText(errorMessage);
+                            tvPasswordError.setVisibility(TextView.VISIBLE);
+                            etPassword.requestFocus();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        tvPasswordError.setText("An error occurred. Please try again.");
+                        tvPasswordError.setVisibility(TextView.VISIBLE);
+                        etPassword.requestFocus();
+                    }
+                },
+                error -> {
+                    error.printStackTrace();
+                    tvPasswordError.setText("Network error. Please check your connection.");
+                    tvPasswordError.setVisibility(TextView.VISIBLE);
+                    etPassword.requestFocus();
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                // Send POST params to PHP
+                params.put("storeName", storeName); // already trimmed & lowercase
+                params.put("password", password);
+                return params;
+            }
+        };
+
+        queue.add(stringRequest);
     }
 }
