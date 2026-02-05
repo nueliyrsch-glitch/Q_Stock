@@ -15,7 +15,7 @@ public class LogIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Ensure this matches your activity_log_in.xml
+        // Ensure this matches your activity_log_in.xml file name
         setContentView(R.layout.activity_log_in);
 
         // 1. BACK BUTTON: Navigates back to the 'Account' selection page
@@ -39,7 +39,7 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
-        // 3. ORANGE SIGN IN BUTTON: Leads to the Dashboard
+        // 3. ORANGE SIGN IN BUTTON: Integrated logic to pass Name and Location
         final EditText etStoreName = findViewById(R.id.etStoreName);
         final EditText etPassword = findViewById(R.id.etPassword);
         Button btnSignIn = findViewById(R.id.btnSignIn);
@@ -50,16 +50,20 @@ public class LogIn extends AppCompatActivity {
                 String storeName = etStoreName.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
-                // Basic validation before navigating
                 if (storeName.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LogIn.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Logic to jump to Dashboard
+                    // Create the bridge to the Dashboard
                     Intent intent = new Intent(LogIn.this, Dashboard.class);
-                    startActivity(intent);
 
-                    // finish() prevents going back to Login when pressing the phone's back button
-                    finish();
+                    // Pass the Store Name entered by the user
+                    intent.putExtra("STORE_NAME_KEY", storeName);
+
+                    // Pass a placeholder Location (this will eventually come from your database)
+                    intent.putExtra("LOCATION_KEY", "Dasmariñas, Cavite");
+
+                    startActivity(intent);
+                    finish(); // Prevents user from going back to login screen after success
                 }
             }
         });
