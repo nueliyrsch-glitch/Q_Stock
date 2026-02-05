@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class Inventory extends AppCompatActivity {
 
     @Override
@@ -15,30 +14,30 @@ public class Inventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        // 1. Back button click listener (navigate to Dashboard activity)
+        // 1. Back button click listener
         ImageView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> {
-            // Create an Intent to navigate to the Dashboard activity
-            Intent intent = new Intent(Inventory.this, Dashboard.class);  // Correctly initialized Intent
-            startActivity(intent);  // Start the Dashboard activity
-            finish();  // Close the Inventory activity after navigation
+            finish(); // Goes back to the previous screen (Dashboard)
         });
 
-        // 2. Product click listener (for Datu Puti Vinegar)
-        TextView product1TextView = findViewById(R.id.product1); // ID from the inventory layout
-        product1TextView.setOnClickListener(new View.OnClickListener() {
+        TextView product1TextView = findViewById(R.id.product1);
+
+        TextView btnDetail = findViewById(R.id.btnProductDetail);
+
+
+        View.OnClickListener productClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to open ProductDetail activity
                 Intent intent = new Intent(Inventory.this, ProductDetail.class);
-                // Pass product data to the ProductDetail activity
                 intent.putExtra("productName", "Datu Puti Vinegar");
                 intent.putExtra("productPrice", "₱ 15.00");
                 intent.putExtra("productStock", "52");
-
-                // Start ProductDetail activity
                 startActivity(intent);
             }
-        });
+        };
+
+
+        product1TextView.setOnClickListener(productClickListener);
+        btnDetail.setOnClickListener(productClickListener);
     }
 }

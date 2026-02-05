@@ -161,7 +161,7 @@
                             android:textStyle="bold"
                             android:clickable="true"
                             android:focusable="true"
-                            android:onClick="onClickProductDetail" /> <!-- Ensure this onClick attribute matches the method in Java -->
+                             /> <!-- Ensure this onClick attribute matches the method in Java -->
                     </LinearLayout>
 
                 </RelativeLayout>

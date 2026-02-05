@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -5,14 +6,12 @@
     android:background="#FDFDC6"
     android:orientation="vertical">
 
-    <!-- Top Section with Back Button and Title -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#F89C33"
         android:padding="10dp">
 
-        <!-- Back Button -->
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="30dp"
@@ -23,7 +22,6 @@
             android:scaleType="centerInside"
             app:tint="#FFFFFF" />
 
-        <!-- Title: PRODUCT DETAIL -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +34,6 @@
             android:layout_marginStart="16dp"/>
     </RelativeLayout>
 
-    <!-- Product Information Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,12 +43,10 @@
         android:padding="15dp"
         android:gravity="center_horizontal">
 
-        <!-- Product Image and Details -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Product Image -->
             <ImageView
                 android:id="@+id/imgProduct"
                 android:layout_width="80dp"
@@ -60,7 +55,6 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"/>
 
-            <!-- Product Info -->
             <LinearLayout
                 android:layout_toEndOf="@id/imgProduct"
                 android:layout_width="wrap_content"
@@ -75,20 +69,16 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datu Puti Vinegar 200 ML"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/txtProductBrand"
-                    android:text="Brand: RichTaste Creations"
                     android:textColor="#757575"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
-            <!-- Product Stock -->
             <TextView
                 android:id="@+id/txtProductStock"
                 android:textSize="12sp"
@@ -96,13 +86,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yellow_circle"
-                android:text="In Stock: 52"
                 android:textColor="@color/black"
                 android:padding="4dp"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
 
-        <!-- Price Section -->
         <TextView
             android:text="Current Price:"
             android:layout_width="wrap_content"
@@ -116,48 +104,41 @@
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter new price"
             android:textColor="#333333"
             android:textSize="16sp"
             android:layout_marginTop="5dp"/>
-
     </LinearLayout>
 
-    <!-- Buttons for Stock Update and Delete -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingHorizontal="15dp"
         android:layout_marginTop="20dp">
 
-        <!-- Update Stock Button -->
         <Button
             android:id="@+id/btnUpdateStock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#F89C33"
             android:text="Update Stock"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
-        <!-- Delete Button -->
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:backgroundTint="#F89C33"
             android:text="Delete"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Price Trend Section (Optional) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -166,19 +147,13 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <TextView android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Annual Price Trend"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="16sp"/>
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/priceTrendChart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#F0F0F0"
-            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 </LinearLayout>
