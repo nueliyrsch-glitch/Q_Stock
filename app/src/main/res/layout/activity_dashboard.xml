@@ -78,6 +78,7 @@
                     android:layout_marginStart="16dp">
 
                     <TextView
+                        android:id="@+id/tvDashboardStoreName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tita Store"
@@ -86,6 +87,7 @@
                         android:textColor="#333333"/>
 
                     <TextView
+                        android:id="@+id/tvDashboardLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Location Location 123"
