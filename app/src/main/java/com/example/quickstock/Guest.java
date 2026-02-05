@@ -52,7 +52,7 @@ public class Guest extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logic to go back to previous activity
+                // Logic to go back to a activity
                 finish();  // This will close the current activity and return to the previous one
             }
         });
