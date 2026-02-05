@@ -150,7 +150,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
             android:background="@drawable/bg_orange_pill"
-            android:text="Sign in"
+            android:text="Log in"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:backgroundTint="@null" />

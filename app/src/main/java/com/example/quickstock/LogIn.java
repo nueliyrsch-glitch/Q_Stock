@@ -15,7 +15,7 @@ public class LogIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // This must match your layout file name exactly
+        // Ensure this matches your activity_log_in.xml
         setContentView(R.layout.activity_log_in);
 
         // 1. BACK BUTTON: Navigates back to the 'Account' selection page
@@ -29,19 +29,17 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
-        // 2. CREATE ACCOUNT LINK: This is what you specifically asked for
-        // It opens your Sign In (Registration) UI
+        // 2. CREATE ACCOUNT LINK: Opens your Sign In (Registration) UI
         TextView createAccountText = findViewById(R.id.btnCreateAccount);
         createAccountText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // This leads directly to the registration screen
                 Intent intent = new Intent(LogIn.this, SignIn.class);
                 startActivity(intent);
             }
         });
 
-        // 3. ORANGE SIGN IN BUTTON: For existing store owners
+        // 3. ORANGE SIGN IN BUTTON: Leads to the Dashboard
         final EditText etStoreName = findViewById(R.id.etStoreName);
         final EditText etPassword = findViewById(R.id.etPassword);
         Button btnSignIn = findViewById(R.id.btnSignIn);
@@ -52,11 +50,16 @@ public class LogIn extends AppCompatActivity {
                 String storeName = etStoreName.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
+                // Basic validation before navigating
                 if (storeName.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LogIn.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Since there is no dashboard, we just show a message or go to Welcome
-                    Toast.makeText(LogIn.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                    // Logic to jump to Dashboard
+                    Intent intent = new Intent(LogIn.this, Dashboard.class);
+                    startActivity(intent);
+
+                    // finish() prevents going back to Login when pressing the phone's back button
+                    finish();
                 }
             }
         });
