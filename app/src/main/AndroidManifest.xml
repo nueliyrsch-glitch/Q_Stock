@@ -14,10 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuickStock">
         <activity
-            android:name=".Inventory"
+            android:name=".ProductDetail"
             android:exported="false" />
         <activity
-            android:name=".Settings"
+            android:name=".AddProductInv"
+            android:exported="false" />
+        <activity
+            android:name=".Inventory"
             android:exported="false" />
         <activity
             android:name=".Dashboard"

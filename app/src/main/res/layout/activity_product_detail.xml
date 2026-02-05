@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDC6"
+    android:orientation="vertical">
+
+    <!-- Product Detail Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#F89C33"
+        android:padding="10dp">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/back"
+            android:contentDescription="Back"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:padding="8dp" />
+
+        <!-- Product Detail Title -->
+        <TextView
+            android:id="@+id/txtProductDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRODUCT DETAIL"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/btnBack"
+            android:layout_marginStart="16dp" />
+    </RelativeLayout>
+
+    <!-- Product Information Section (Clickable) -->
+    <LinearLayout
+        android:id="@+id/productInfoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:background="@drawable/bg_white_rounded_chip"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="goToProductDetail"> <!-- Added the onClick listener -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/imgProduct"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/vinegar" />
+
+        <!-- Product Information -->
+        <LinearLayout
+            android:layout_toRightOf="@id/imgProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datu Puti Vinegar 200 ML"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/txtProductBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RichTaste Creations"
+            android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- Product Stock -->
+        <TextView
+            android:id="@+id/txtProductStock"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yellow_circle"
+        android:text="In Stock: 52"
+        android:textColor="@color/black"
+        android:padding="4dp" />
+    </RelativeLayout>
+
+    <!-- Price and Edit Price -->
+    <TextView
+        android:id="@+id/txtEditPriceLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Edit Price"
+    android:textSize="10sp"
+    android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/edtProductPrice"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/bg_white_rounded_chip"
+    android:text="₱ 15.00"
+    android:paddingLeft="10dp"/>
+</LinearLayout>
+
+    <!-- Buttons for Update and Delete -->
+<LinearLayout
+android:id="@+id/buttonsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_marginTop="10dp">
+
+<Button
+android:id="@+id/btnUpdateStock"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginRight="5dp"
+    android:backgroundTint="#F89C33"
+    android:text="Update Stock"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold" />
+
+<Button
+android:id="@+id/btnDelete"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginLeft="5dp"
+    android:backgroundTint="#F89C33"
+    android:text="Delete"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Product Trend Chart -->
+<LinearLayout
+android:id="@+id/trendChartLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:background="#F89C33"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+<TextView
+android:id="@+id/txtAnnualPriceTrend"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Annual Price Trend"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"
+    android:textSize="16sp"/>
+
+    <!-- Chart -->
+<com.github.mikephil.charting.charts.BarChart
+android:id="@+id/priceTrendChart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    </LinearLayout>
