@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800">
+
+    <!-- ================= HEADER ================= -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <!-- YELLOW STRIP -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="#FFF9C4" />
+
+
+
+        <!-- BACK + SETTINGS -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+
+            <ImageButton
+                android:id="@+id/btnBackSettings"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@android:drawable/ic_media_rew"
+                android:contentDescription="Back"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_marginTop="1dp"
+                android:layout_marginStart="16dp"
+                android:tint="#FF9800"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="SETTINGS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF9800" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- ================= SETTINGS CARD (BEHIND) ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/corner_body"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- GENERAL -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GENERAL"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="15sp"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Account -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/account"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- Change Password -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/change"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- Logout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/logout"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- FEEDBACK -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="FEEDBACK"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="15sp"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Report -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/report"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- Send -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/send"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- Delete -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/delete"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- FOOTER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Stock Smart. Sell Fast.&#10;QuickStock."
+            android:textColor="#888888"
+            android:textSize="11sp"
+            android:lineSpacingExtra="2dp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <!-- ================= LOGO CIRCLE (IN FRONT) ================= -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/qstock_logo"
+        android:contentDescription="QStock Logo"
+        android:background="@drawable/yellow_circle"
+        android:elevation="12dp" />
+
+
+
+
+</FrameLayout>

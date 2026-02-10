@@ -160,6 +160,7 @@
 
 
                             <TextView
+                                android:id="@+id/tvProductPrice"
                                 android:text="₱ 15.00"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -169,7 +170,7 @@
 
 
                             <TextView
-                                android:id="@+id/btnProductDetail"
+                                android:id="@+id/tvProductStock"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_orange_pill"

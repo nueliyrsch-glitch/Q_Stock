@@ -2,6 +2,7 @@ package com.example.quickstock;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Dashboard extends AppCompatActivity {
+
+    private static final String TAG = "Dashboard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,24 @@ public class Dashboard extends AppCompatActivity {
         btnInventory.setOnClickListener(v -> {
             // When Inventory icon is clicked, navigate to the Inventory activity
             Intent intent = new Intent(Dashboard.this, Inventory.class);
+            startActivity(intent);
+        });
+
+        // 6. Supplier Button Logic - Navigate to Supplier activity
+        LinearLayout btnSupplier = findViewById(R.id.btnSupplier); // Ensure the correct ID for the supplier button
+        btnSupplier.setOnClickListener(v -> {
+            // When Supplier icon is clicked, navigate to the Supplier activity
+            Intent intent = new Intent(Dashboard.this, supplier.class);  // Correct class name (Supplier)
+            startActivity(intent);
+        });
+
+        // 7. Settings Button Logic - Navigate to Settings activity
+        LinearLayout btnSettings = findViewById(R.id.btnSettings); // Ensure the correct ID for the settings button
+        btnSettings.setOnClickListener(v -> {
+            // Log to check if the settings button click is triggered
+            Log.d(TAG, "Settings button clicked");
+            // When Settings icon is clicked, navigate to the Settings activity
+            Intent intent = new Intent(Dashboard.this, settings.class); // Ensure this points to the correct SettingsActivity class
             startActivity(intent);
         });
     }
